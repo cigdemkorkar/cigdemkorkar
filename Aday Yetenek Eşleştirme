@@ -1,0 +1,21 @@
+# Pozisyonun gerektirdiği yetenekler
+pozisyon_gereklilikleri = {
+    "Python": 1,
+    "Java": 1,
+    "Docker": 0,  # İsteğe bağlı yetenek
+    "SQL": 1,
+    "AWS": 0
+}
+
+# Adayın yetenekleri (örneğin başvurudan alınan yetenekler)
+aday_yetenekleri = ["Python", "SQL"]
+
+# Gereksinimleri karşılama oranını hesaplayan fonksiyon
+def eslesme_orani(gereklilikler, yetenekler):
+    eslesenler = sum(1 for gereksinim, zorunlu in gereklilikler.items() if zorunlu and gereksinim in yetenekler)
+    toplam_gereksinim = sum(gereklilikler.values())
+    return eslesenler / toplam_gereksinim
+
+# Test
+oran = eslesme_orani(pozisyon_gereklilikleri, aday_yetenekleri)
+print(f"Adayın pozisyona uygunluk oranı: %{oran * 100:.2f}")
