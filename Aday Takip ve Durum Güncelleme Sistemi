@@ -1,0 +1,24 @@
+# Adaylar listesi (örnek veri)
+adaylar = {
+    "Ali": "Mülakat Planlandı",
+    "Ayşe": "CV İnceleniyor",
+    "Mehmet": "Teklif Verildi",
+}
+
+# Aday durumunu güncelleme fonksiyonu
+def aday_durumu_guncelle(ad, yeni_durum):
+    if ad in adaylar:
+        adaylar[ad] = yeni_durum
+        print(f"{ad} adlı adayın durumu güncellendi: {yeni_durum}")
+    else:
+        print(f"{ad} adlı aday bulunamadı.")
+
+# Aday ekleme fonksiyonu
+def yeni_aday_ekle(ad, durum="Başvuru Alındı"):
+    adaylar[ad] = durum
+    print(f"{ad} adlı aday eklendi: {durum}")
+
+# Test
+yeni_aday_ekle("Elif")
+aday_durumu_guncelle("Ayşe", "İlk Görüşme Tamamlandı")
+print("Güncel Aday Durumları:", adaylar)
